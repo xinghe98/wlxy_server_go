@@ -2,15 +2,15 @@ package controller
 
 import (
 	"github.com/gin-gonic/gin"
-	"github.com/xinghe98/wlxy_server_go/service"
+	"github.com/xinghe98/wlxy_server_go/types"
 )
 
-func NewCommonHandler(common service.Adminer) *CommonCo {
+func NewCommonHandler(common types.Commoner) *CommonCo {
 	return &CommonCo{common}
 }
 
 type CommonCo struct {
-	common service.Adminer
+	common types.Commoner
 }
 
 func (a *CommonCo) HelloHandler(c *gin.Context) {

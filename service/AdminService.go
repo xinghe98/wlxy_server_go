@@ -1,12 +1,17 @@
 package service
 
-import "github.com/gin-gonic/gin"
+import (
+	"github.com/gin-gonic/gin"
+	"github.com/xinghe98/wlxy_server_go/dao"
+)
 
-func NewAdminService() *AdminService {
-	return &AdminService{}
+func NewAdminService(db *dao.DBService) *AdminService {
+	return &AdminService{db}
 }
 
-type AdminService struct{}
+type AdminService struct {
+	db *dao.DBService
+}
 
 func (a AdminService) Hello(c *gin.Context) {
 	c.JSON(200, gin.H{
